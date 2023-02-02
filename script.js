@@ -1,9 +1,22 @@
 const library = [];
 
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.read = read;
+  this.toggleRead = function () {
+    if (this.read) {
+      this.read = false;
+    } else {
+      this.read = true;
+    }
+    console.log(this);
+  };
+}
+
+function removeBook() {
+  this.parentNode.remove();
 }
 
 function displayBook(book) {
@@ -42,8 +55,25 @@ function displayBook(book) {
     bookCard.appendChild(pages);
   }
 
-  bookCard.classList.add("card");
+  const read = document.createElement("div");
+  read.classList.add("read");
+  read.textContent = "Read";
+  const readBox = document.createElement("input");
+  readBox.type = "checkbox";
+  readBox.checked = book.read;
+  readBox.classList.add("read");
+  const toggleFunc = book.toggleRead.bind(book);
+  readBox.addEventListener("change", toggleFunc);
+  read.appendChild(readBox);
+  bookCard.appendChild(read);
 
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("remove");
+  removeButton.addEventListener("click", removeBook);
+  removeButton.appendChild(document.createTextNode("Remove"));
+  bookCard.appendChild(removeButton);
+
+  bookCard.classList.add("card");
   bookCards.appendChild(bookCard);
 }
 
@@ -57,7 +87,8 @@ function addBookToLibrary(event) {
     titleNode.classList.remove("warning");
     const author = document.querySelector("input#author").value;
     const pages = document.querySelector("input#pages").value;
-    const book = new Book(title, author, pages);
+    const read = document.querySelector("input#read").checked;
+    const book = new Book(title, author, pages, read);
     library.push(book);
     displayBook(book);
   }

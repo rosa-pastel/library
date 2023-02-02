@@ -43,25 +43,25 @@
   background-image: url(./pictures/tim-van-cleef.jpg);
   background-size: cover;
   padding: 30px;
-  display: grid;
-  grid-template-rows: max-content max-content 1fr;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: 50px;
 }
 .books {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: space-evenly;
 }
 .card {
   width: 250px;
-  height: 250px;
+  height: 350px;
   padding: 30px;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.55);
-  display: flex;
+  display: grid;
   gap: 20px;
-  flex-direction: column;
 }
 .title p,
 .author p,
@@ -72,9 +72,13 @@
   padding: 5px 0;
   text-shadow: none;
 }
+input.read {
+  margin-left: 20px;
+}
 .title,
 .author,
-.pages {
+.pages,
+input.read {
   text-shadow: 0 0 2px black;
   font-size: 20px;
   color: white;
@@ -87,7 +91,6 @@
   text-shadow: 0 0 3px black;
 }
 .photo-ref {
-  align-self: end;
   text-align: center;
 }
 .form-container {
@@ -116,27 +119,41 @@ form {
   gap: 20px;
   grid-template-columns: 1fr 150px;
 }
-input + p {
+.form-row input[type="checkbox"] {
+  justify-self: start;
+}
+form input + p {
   display: none;
   font-size: 14px;
   position: absolute;
   top: 30px;
   right: 0;
 }
-input.warning + p {
+form input.warning + p {
   display: block;
+}
+button.remove {
+  padding: 7px 20px;
+  background-color: rgb(165, 133, 93);
+  color: black;
+  border-radius: 10px;
+  border: none;
+  justify-self: center;
+  align-self: end;
+  height: max-content;
 }
 button.submit,
 button.new {
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
-  justify-self: center;
 }
 button.new {
+  align-self: center;
   background-color: white;
 }
 button.submit {
+  justify-self: center;
   margin-top: 30px;
   background-color: #1f1208;
   color: white;
@@ -152,12 +169,7 @@ button.submit {
   .header,
   .main-content,
   .footer {
-    padding-left: calc(50% - 400px);
-    padding-right: calc(50% - 400px);
-  }
-}
-@media screen and (max-width: 900px) {
-  .books {
-    justify-content: space-evenly;
+    padding-left: calc(50% - 450px);
+    padding-right: calc(50% - 450px);
   }
 }
