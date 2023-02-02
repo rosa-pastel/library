@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-family: "montserrat";
+  color: black;
+}
+@font-face {
+  font-family: "send-flowers";
+  src: url(./fonts/SendFlowers-Regular.ttf);
+}
+@font-face {
+  font-family: "montserrat";
+  font-style: normal;
+  src: url(./fonts/MontserratSemibold-Yz368.ttf);
+}
+@font-face {
+  font-family: "montserrat";
+  font-style: italic;
+  src: url(./fonts/MontserratSemiboldItalic-OVZXA.ttf);
+}
+.header {
+  color: #1f1208;
+  background-color: #f5f5f4;
+  height: 100px;
+}
+.header h1 {
+  padding: 30px;
+  font-size: 50px;
+  font-family: "send-flowers";
+}
+.footer {
+  height: 100px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1208;
+}
+.main-content {
+  min-height: calc(100vh - 100px);
+  background-image: url(./pictures/tim-van-cleef.jpg);
+  background-size: cover;
+  padding: 30px;
+  display: grid;
+  grid-template-rows: max-content max-content 1fr;
+  align-content: start;
+  gap: 50px;
+}
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  width: 250px;
+  height: 250px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.title p,
+.author p,
+.pages p {
+  color: black;
+  font-size: 16px;
+  font-style: italic;
+  padding: 5px 0;
+  text-shadow: none;
+}
+.title,
+.author,
+.pages {
+  text-shadow: 0 0 2px black;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  width: max-content;
+}
+.photo-ref,
+.photo-ref a {
+  color: white;
+  text-shadow: 0 0 3px black;
+}
+.photo-ref {
+  align-self: end;
+  text-align: center;
+}
+.form-container {
+  display: none;
+  position: fixed;
+  top: calc((100vh - 400px) / 2);
+  left: calc((100vw - 400px) / 2);
+  z-index: 1;
+  height: 400px;
+  width: 400px;
+  background-color: #f5f5f4;
+  border-radius: 25px;
+}
+form {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 30px 30px 30px;
+  place-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.form-row {
+  display: grid;
+  position: relative;
+  gap: 20px;
+  grid-template-columns: 1fr 150px;
+}
+input + p {
+  display: none;
+  font-size: 14px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+input.warning + p {
+  display: block;
+}
+button.submit,
+button.new {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  justify-self: center;
+}
+button.new {
+  background-color: white;
+}
+button.submit {
+  margin-top: 30px;
+  background-color: #1f1208;
+  color: white;
+}
+.close-form {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 25px;
+  height: 25px;
+}
+@media screen and (min-width: 900px) {
+  .header,
+  .main-content,
+  .footer {
+    padding-left: calc(50% - 400px);
+    padding-right: calc(50% - 400px);
+  }
+}
+@media screen and (max-width: 900px) {
+  .books {
+    justify-content: space-evenly;
+  }
+}
