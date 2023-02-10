@@ -63,9 +63,7 @@
   display: grid;
   gap: 20px;
 }
-.title p,
-.author p,
-.pages p {
+.card-label p {
   color: black;
   font-size: 16px;
   font-style: italic;
@@ -75,13 +73,11 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
-input.read {
+.read input {
   margin-left: 20px;
 }
-.title,
-.author,
-.pages,
-div.read {
+.card-label,
+.read {
   text-shadow: 0 0 2px black;
   font-size: 20px;
   color: white;

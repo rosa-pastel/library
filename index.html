@@ -32,7 +32,11 @@
           </div>
           <div class="form-row">
             <label for="pages">Pages</label>
-            <input type="number" id="pages" />
+            <input
+              type="number"
+              id="pages"
+              onkeydown="return event.keyCode !== 69"
+            />
           </div>
           <div class="form-row">
             <label for="read">Read</label>
