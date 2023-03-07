@@ -24,11 +24,12 @@
           <div class="form-row">
             <label for="title">Title</label>
             <input type="text" id="title" required placeholder="Book title" />
-            <p>Title can't be empty</p>
+            <p>You must enter the title</p>
           </div>
           <div class="form-row">
             <label for="author">Author</label>
             <input type="text" id="author" placeholder="Author's name" />
+            <p>You must enter the author's name</p>
           </div>
           <div class="form-row">
             <label for="pages">Pages</label>
@@ -37,6 +38,7 @@
               id="pages"
               onkeydown="return event.keyCode !== 69"
             />
+            <p>You must enter the number of pages</p>
           </div>
           <div class="form-row">
             <label for="read">Read</label>

@@ -98,7 +98,7 @@
   top: calc((100vh - 400px) / 2);
   left: calc((100vw - 400px) / 2);
   z-index: 1;
-  height: 400px;
+  height: 500px;
   width: 400px;
   background-color: #f5f5f4;
   border-radius: 25px;
@@ -107,7 +107,7 @@ form {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: 30px 30px 30px;
+  grid-auto-rows: 50px;
   place-content: center;
   align-items: center;
   gap: 30px;
@@ -116,7 +116,7 @@ form {
   display: grid;
   position: relative;
   gap: 20px;
-  grid-template-columns: 1fr 150px;
+  grid-template-columns: 1fr 200px;
 }
 .form-row input[type="checkbox"] {
   justify-self: start;
@@ -125,8 +125,18 @@ form input + p {
   display: none;
   font-size: 14px;
   position: absolute;
-  top: 30px;
+  top: 40px;
   right: 0;
+  color: #1f1208;
+  font-style: italic;
+}
+form input {
+  border: #1f1208 solid 1px;
+  border-radius: 3px;
+  padding: 2px 5px;
+}
+form input.warning {
+  border: #1f1208 solid 2px;
 }
 form input.warning + p {
   display: block;

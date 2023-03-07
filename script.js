@@ -60,16 +60,35 @@ class Book {
   }
 }
 
-function addBookToLibrary(event) {
+function formVal(event) {
   event.preventDefault();
   const titleNode = document.querySelector("input#title");
   const title = titleNode.value;
+  const authorNode = document.querySelector("input#author");
+  const author = authorNode.value;
+  const pagesNode = document.querySelector("input#pages");
+  const pages = pagesNode.value;
+
+  let validity = 1;
   if (!title || title.trim() === "") {
     titleNode.classList.add("warning");
+    validity = 0;
   } else {
     titleNode.classList.remove("warning");
-    const author = document.querySelector("input#author").value;
-    const pages = document.querySelector("input#pages").value;
+  }
+  if (!author || author.trim() === "") {
+    authorNode.classList.add("warning");
+    validity = 0;
+  } else {
+    authorNode.classList.remove("warning");
+  }
+  if (!pages || pages.trim() === "") {
+    pagesNode.classList.add("warning");
+    validity = 0;
+  } else {
+    pagesNode.classList.remove("warning");
+  }
+  if (validity) {
     const read = document.querySelector("input#read").checked;
     const book = new Book(title, author, pages, read);
     book.displayBook();
@@ -90,7 +109,7 @@ function addEventListeners() {
   });
 
   const addBookButton = document.querySelector("button.submit");
-  addBookButton.addEventListener("click", addBookToLibrary);
+  addBookButton.addEventListener("click", formVal);
 }
 
 addEventListeners();
